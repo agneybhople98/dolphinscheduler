@@ -104,15 +104,15 @@ const Content = defineComponent({
     return (
       <NLayout style='height: 100%'>
         <NLayoutHeader style='height: 65px'>
-          <NavBar
+          {/* <NavBar
             class='tab-horizontal'
             headerMenuOptions={this.headerMenuOptions}
             localesOptions={this.localesOptions}
             timezoneOptions={this.timezoneOptions}
             userDropdownOptions={this.userDropdownOptions}
-          />
+          /> */}
         </NLayoutHeader>
-        <NLayout has-sider position='absolute' style='top: 65px'>
+        <NLayout has-sider position='absolute' style='top: 0px'>
           {this.isShowSide && (
             <SideBar
               sideMenuOptions={this.sideMenuOptions}

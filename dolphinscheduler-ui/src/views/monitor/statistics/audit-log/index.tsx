@@ -99,6 +99,7 @@ const AuditLog = defineComponent({
 
     return (
       <NSpace vertical>
+     
         <Card>
           <NSpace justify='end'>
             <NInput
@@ -108,6 +109,7 @@ const AuditLog = defineComponent({
               placeholder={t('monitor.audit_log.user_name')}
               clearable
             />
+  
             <NInput
               allowInput={this.trim}
               v-model={[this.modelName, 'value']}

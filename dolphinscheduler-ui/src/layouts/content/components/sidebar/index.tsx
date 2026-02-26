@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import { defineComponent, ref, PropType } from 'vue'
-import { NLayoutSider, NMenu } from 'naive-ui'
+import { defineComponent, PropType } from 'vue'
+import { NMenu } from 'naive-ui'
 import { useMenuClick } from './use-menuClick'
 
 const Sidebar = defineComponent({
@@ -32,7 +32,6 @@ const Sidebar = defineComponent({
     }
   },
   setup() {
-    const collapsedRef = ref(false)
     const defaultExpandedKeys = [
       'workflow',
       'task',
@@ -43,27 +42,17 @@ const Sidebar = defineComponent({
 
     const { handleMenuClick } = useMenuClick()
 
-    return { collapsedRef, defaultExpandedKeys, handleMenuClick }
+    return { defaultExpandedKeys, handleMenuClick }
   },
   render() {
     return (
-      <NLayoutSider
-        bordered
-        nativeScrollbar={false}
-        show-trigger='bar'
-        collapse-mode='width'
-        collapsed={this.collapsedRef}
-        onCollapse={() => (this.collapsedRef = true)}
-        onExpand={() => (this.collapsedRef = false)}
-      >
-        <NMenu
-          class='tab-vertical'
-          value={this.sideKey}
-          options={this.sideMenuOptions}
-          defaultExpandedKeys={this.defaultExpandedKeys}
-          onUpdateValue={this.handleMenuClick}
-        />
-      </NLayoutSider>
+      <NMenu
+        class='tab-vertical'
+        value={this.sideKey}
+        options={this.sideMenuOptions}
+        defaultExpandedKeys={this.defaultExpandedKeys}
+        onUpdateValue={this.handleMenuClick}
+      />
     )
   }
 })
